@@ -1,1 +1,84 @@
+# 🖥️ Painel de Otimização para Windows
+> **Desenvolvido por:** Fe.403  
+> Um painel de otimização feito em Python, criado do zero por alguém que nunca tinha programado antes. Roda direto no terminal, com um menu simples, e ajuda a limpar, otimizar e configurar seu PC com poucos cliques.
 
+---
+
+## 💡 O que é isso?
+
+É um programa que reúne, num só lugar, várias tarefas de manutenção e otimização do Windows que normalmente você precisaria abrir em vários lugares diferentes (Painel de Controle, PowerShell, Configurações, etc.). Aqui é tudo num menu numerado, direto no terminal.
+
+**Feito para quem quer:**
+- ⚡ Deixar o PC mais rápido e limpo
+- 🎮 Melhorar o desempenho em jogos
+- 🔧 Resolver pequenos problemas do Windows sem precisar procurar tutoriais na internet
+
+---
+
+## 🚀 Como usar (se você recebeu o `.exe`)
+
+1. **Baixe** o arquivo `painel.exe`.
+2. **Dê duplo clique** nele.
+3. Vai aparecer uma tela pedindo permissão de Administrador → clique em **Sim**.
+   > *Isso é necessário porque várias otimizações exigem esse nível de acesso para alterar configurações do sistema.*
+4. Se o Windows avisar *"O SmartScreen protegeu seu PC"* → clique em **Mais informações** → **Executar assim mesmo**.
+   > *Isso acontece porque o programa é independente e não possui um certificado digital pago, não significa que tenha vírus.*
+5. Vai aparecer uma mensagem de boas-vindas — aperte `ENTER` para seguir.
+6. Escolha uma opção digitando o número correspondente e aperte `ENTER`.
+
+### 🛑 Antes de começar:
+Recomendo fortemente usar a **Opção 1 (Criar ponto de restauração)** antes de qualquer outra coisa. Assim, se alguma otimização não agradar, dá para voltar o Windows para o estado de antes com facilidade.
+
+---
+
+## 📋 O que o painel faz?
+
+São **29 opções no total**, todas escolhidas por terem efeito real — nada de função "decorativa" que não faz diferença na prática.
+
+| Categoria | O que inclui |
+| :--- | :--- |
+| 🛡️ **Sistema** | Ponto de restauração, verificação de arquivos (sfc/DISM), limpeza de espaço em disco, info do sistema. |
+| 🗑️ **Limpeza** | Arquivos temporários, cache de navegadores, esvaziar Lixeira. |
+| 🌐 **Rede** | Testar conexão, resetar rede, ver IP, limpar cache DNS. |
+| 🎮 **Jogos** | Game Mode, modo de desempenho máximo, prioridade de processos, Modo Gamer (ativa tudo de uma vez). |
+| 🔒 **Privacidade / Performance** | Desativar telemetria, apps em segundo plano, serviços desnecessários, Cortana. |
+| 🛠️ **Ferramentas Rápidas** | Gerenciador de Tarefas, Propriedades do Sistema, Gerenciador de Serviços, relatório de bateria. |
+
+---
+
+## 💻 Para os Devs: Como rodar o código-fonte
+
+Se você baixou o `painel.py` em vez do `.exe`, precisará do **Python 3.x** instalado (testado na versão 3.14) no Windows.
+
+Para executar:
+```bash
+python painel.py
+```
+
+### ⚙️ Como gerar o `.exe` você mesmo
+Caso queira compilar o seu próprio executável a partir do código fonte:
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --console painel.py
+```
+O arquivo executável será gerado dentro da pasta `dist/`.
+
+---
+
+## ⚠️ Avisos Importantes
+
+- **Modificações no Sistema:** Esse programa altera configurações sensíveis do sistema, incluindo o Registro do Windows. Use com responsabilidade.
+- **Compatibilidade:** Testado em **Windows 11**. Pode apresentar comportamentos diferentes em versões mais antigas do Windows.
+- **Dependências:** Algumas opções (como o `winget`) dependem de componentes que nem todo Windows tem instalado por padrão. O painel avisará quando isso acontecer.
+- **Garantia:** Este é um projeto pessoal e educacional. Não há garantias formais — use por sua conta e risco, e **sempre crie um ponto de restauração** antes de mexer em otimizações profundas.
+
+---
+
+## ❤️ Sobre o projeto
+
+Esse painel nasceu de zero conhecimento em programação. Cada função aqui foi aprendida, testada, quebrada e corrigida até funcionar. Se você chegou até esse README, provavelmente é porque quer aprender também — e a mensagem é simples: **dá para fazer, com paciência e resolvendo um erro por vez.**
+
+Feedbacks são muito bem-vindos! Se funcionou bem no seu PC, ou se algo travou, me conta!
+
+> *Desenvolvido por Fe.403 — 2026*
