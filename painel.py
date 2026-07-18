@@ -42,6 +42,17 @@ def modo_gamer():
     print("Modo Gamer ativado! Pode jogar tranquilo, chefe!")
 
 
+
+print("=" * 60)
+print(" Olá pessoa que pegou o painel do Fe.403!")
+print()
+print(" Antes de tudo: crie um ponto de restauração (opção 1).")
+print(" Algumas funções podem não funcionar pois nem todos os pc e notebooks são iguais")
+print(" se funcionar bem, deixa seu feedback. Um abraço do mano Fe!")
+print("=" * 60)
+input("\nPressione ENTER para continuar...")
+
+
 opcao = ""
 while opcao != "0":
     print("=== Painel de Otimização ===")
@@ -69,6 +80,18 @@ while opcao != "0":
     print("22 - Relatório de bateria")
     print("23 - Limpar arquivos Temporarios")
     print("24 - Modo gamer (Ativa tudo de uma vez)")
+    print("25 - Desativar efeitos visuais")
+    print("26 - Desativar apps em segundo plano")
+    print("27 - Desativar serviços inúteis")
+    print("28 - Otimizar GameBar")
+    print("29 - Desativar hibernação")
+    print("30 - Desativar telemetria")
+    print("31 - Aumentar prioridade de um jogo")
+    print("32 - Reiniciar o Explorer")
+    print("33 - Prioridade CPU/GPU geral pra jogos")
+    print("34 - Desativar indexação de pesquisa")
+    print("35 - Desativar Cortana")
+    print("36 - Desativar Prefetch/Superfetch")
     print("0 - Sair")
 
     opcao = input("Escolha uma opção: ")
@@ -200,6 +223,76 @@ while opcao != "0":
 
     elif opcao == "24":
         modo_gamer()
+
+    elif opcao == "25":
+        print("Desativando efeitos visuais...")
+        os.system('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 2 /f')
+        print("Feito chefe!")
+
+    elif opcao == "26":
+        print("Desativando apps em segundo plano...")
+        os.system('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\BackgroundAccessApplications" /v GlobalUserDisabled /t REG_DWORD /d 1 /f')
+        print("Feito chefe!")
+
+    elif opcao == "27":
+        print("Desativando serviços inúteis...")
+        os.system("sc stop WerSvc")
+        os.system("sc config WerSvc start= disabled")
+        os.system("sc stop DiagTrack")
+        os.system("sc config DiagTrack start= disabled")
+        print("Feito chefe!")
+
+    elif opcao == "28":
+        print("Otimizando GameBar...")
+        os.system('reg add "HKCU\\System\\GameConfigStore" /v GameDVR_Enabled /t REG_DWORD /d 0 /f')
+        os.system('reg add "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f')
+        print("Feito chefe!")
+
+    elif opcao == "29":
+        print("Desativando hibernação (libera espaço em disco)...")
+        os.system("powercfg /hibernate off")
+        print("Feito chefe!")
+
+    elif opcao == "30":
+        print("Desativando telemetria...")
+        os.system('reg add "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f')
+        print("Feito chefe!")
+
+    elif opcao == "31":
+        nome_jogo = input("Digite o nome do executável do jogo (ex: valorant.exe): ")
+        print(f"Aumentando prioridade de {nome_jogo}...")
+        os.system(f'reg add "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\{nome_jogo}\\PerfOptions" /v CpuPriorityClass /t REG_DWORD /d 3 /f')
+        print("Feito chefe!")
+
+    elif opcao == "32":
+        print("Reiniciando o Explorer...")
+        os.system("taskkill /f /im explorer.exe")
+        os.system("start explorer.exe")
+        print("Feito chefe!")
+
+    elif opcao == "33":
+        print("Aumentando prioridade geral da CPU/GPU para jogos...")
+        os.system('reg add "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile" /v SystemResponsiveness /t REG_DWORD /d 0 /f')
+        os.system('reg add "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games" /v "GPU Priority" /t REG_DWORD /d 8 /f')
+        os.system('reg add "HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\\Tasks\\Games" /v "Priority" /t REG_DWORD /d 6 /f')
+        print("Feito chefe!")
+
+    elif opcao == "34":
+        print("Desativando indexação de pesquisa...")
+        os.system('net stop "Windows Search"')
+        os.system('sc config "WSearch" start= disabled')
+        print("Feito chefe!")
+
+    elif opcao == "35":
+        print("Desativando Cortana...")
+        os.system('reg add "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search" /v "AllowCortana" /t REG_DWORD /d 0 /f')
+        print("Feito chefe!")
+
+    elif opcao == "36":
+        print("Desativando Prefetch e Superfetch (indicado pra HDD)...")
+        os.system('reg add "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters" /v EnablePrefetcher /t REG_DWORD /d 0 /f')
+        os.system('sc config "SysMain" start=disabled')
+        print("Feito chefe!")
 
     elif opcao == "0":
         print("Saindo...")
