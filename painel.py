@@ -48,7 +48,7 @@ def winget_disponivel():
     return resultado == 0
 
 
-# ===== Mensagem de boas-vindas =====
+
 print("=" * 60)
 print(" Olá pessoa que pegou o painel do Fe.403!")
 print()
