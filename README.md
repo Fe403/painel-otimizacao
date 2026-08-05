@@ -77,7 +77,7 @@ O arquivo executável será gerado dentro da pasta `dist/`.
 
 ## ❤️ Sobre o projeto
 
-Esse painel nasceu de zero conhecimento em programação. Cada função aqui foi aprendida, testada, quebrada e corrigida até funcionar. Se você chegou até esse README, provavelmente é porque quer aprender também — e a mensagem é simples: **dá para fazer, com paciência e resolvendo um erro por vez.**
+Esse painel nasceu de zero conhecimento em programação. Cada função aqui foi aprendida, testada, quebrada e corrigida até funcionar. Se você chegou até esse README, provavelmente é porque quer aprender também  e a mensagem é simples: **dá para fazer, com paciência e resolvendo um erro por vez.**
 
 Feedbacks são muito bem-vindos! Se funcionou bem no seu PC, ou se algo travou, me conta!
 
